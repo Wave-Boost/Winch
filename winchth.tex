@@ -1,0 +1,232 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{verbatim}
+\usepackage{caption}
+\usepackage{natbib}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage{mathtools}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{afterpage}
+\usepackage{color}
+\usepackage{epsfig}
+
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+
+\tolerance 400
+\pretolerance 200
+
+\title{Investigation into glider launch heights using a land vehicle tow.}
+\author{
+    Hugo P. Corbille and Gregory J. Balle\\
+%%    {\MakeLowercase{hugo.corbille@gmail.com}} \\
+     January 2018
+}
+\begin{document}
+
+%\begin{abstract}
+%\end{abstract}
+
+\maketitle
+
+%\tableofcontents
+
+\section{Introduction}
+We want to determine the influence of the cable length and weight on the height reached by a glider towed in a kite-type launch. Instead of analysing the more common winch launch we consider a land vehicle performing a towed launch, with a constant cable length throughout. Many parameters influence the height achieved by the glider: tow speed, aerodynamics of the glider, glider weight, cable length and weight. From these parameters we are then able to determine the equation of the curve described by the cable. Knowing the cable curve and length we can then derive the maximum height the glider could achieve. The resolution to the cable curve problem approaches the classic catenary problem in the static limit.
+
+\section{Calculations}
+To solve, we consider a curvilinear, elemental length $ds$ under tension, $T(x)$, having horizontal and vertical components $T_{h}(x)$ and $T_{v}(x)$ respectively. Angle $\alpha(x)$ is the local angle the tangent to segment $ds$ makes with the horizontal. So we have 
+
+\begin{equation}
+	\centering
+	\tan{\alpha} = \frac{dy}{dx}
+	\label{eq:deriv}
+\end{equation}
+
+\begin{equation}
+	\centering
+	T_h = T \cos{\alpha} \qquad \text{and} \qquad T_v = T \sin{\alpha}
+	\label{eq:Th}
+\end{equation}
+giving the relation between components of the tension :
+\begin{equation}
+	\centering
+	\frac{T_v}{T_h} = \tan{\alpha} = \frac{dy}{dx}.
+	\label{eq:tension}
+\end{equation}
+
+In our model, we assume the cable drag to be a constant force applied to the glider in addition to the aircraft drag and therefore we can suppose that the horizontal component of the cable tension is constant. Furthermore, considering a non-constant drag along the cable makes the calculation considerably more involved beyond the scope of this study; refining the validity of this approximation could be done in a further study. The horizontal component of the tension is then $T_h = D + \delta y$, where $D$ is the aircraft drag and $\delta$ is the cable drag per unit height. 
+
+The vertical tension component due to the weight of the cable is a function of length $s$
+\begin{equation}
+	\centering
+	T_{v}=\mu g \cdot s
+	\label{eq:vtension}
+\end{equation}
+where $\mu$ is the mass per unit length of cable and $g$ the Earth surface gravitational constant.
+Substituting (\ref{eq:vtension}) into (\ref{eq:tension}) and recognising $T_h$ as constant yields the fundamental equation for the catenary slope
+\begin{equation}
+	\centering
+	\frac{dy}{dx} = \frac{s}{a} 
+	\label{eq:fundamental}
+\end{equation}
+where $a=\frac{T_h}{\mu g}$.
+Now the derivative of (\ref{eq:fundamental}) 
+\begin{equation}
+	\centering
+	\frac{d^{2}y}{{dx}^2}=\frac{1}{a}\frac{ds}{dx}
+	\label{eq:yprimeprime}
+\end{equation}
+can be rearranged using geometrical considerations and the approximation of small deflections for the cable whereby
+\begin{equation}
+	\centering
+	ds^2=dx^2+dy^2
+	\label{eq:elemental}
+\end{equation}
+leads to an expression for $ds$ as a function of $\frac{dy}{dx}$
+\begin{equation}
+	\centering
+	\frac{ds}{dx} = \sqrt{1 + \frac{dy}{dx}}.
+	\label{eq:ds}
+\end{equation}
+and substituting in to (\ref{eq:yprimeprime}) yields the differential equation 
+\begin{equation}
+	\centering
+	y \prime \prime =\frac{1}{a} \sqrt{1 + y\prime ^2}.
+	\label{eq:differential}
+\end{equation}
+
+To solve equation (\ref{eq:differential}) we can set $z(x)=y\prime(x)$ so that
+\begin{equation}
+	\centering
+	\frac{z \prime}{\sqrt{1+z^2}} =\frac{1}{a}.
+	\label{eq:z}
+\end{equation}
+and a primitive satisfying (\ref{eq:z}) has the form $\arcsinh{z(x)}$, such that
+\begin{equation}
+	\centering
+	z(x)=\sinh \left(\frac{x}{a} + K_1 \right)
+	\label{eq:z(x)}
+\end{equation}
+with the general solution of the problem
+\begin{equation}
+	\centering
+	\boxed{y(x)=a \cdot \cosh \left(\frac{x}{a} + K_1 \right) + K_2}
+	\label{eq:solution}
+\end{equation}
+where $K_1$ and $K_2$ are integration constants determined by the boundary conditions.
+
+The boundary conditions are taken to be the following :\newline
+- at $x=0$, $y=0$, i.e the rope remains attached \newline
+- at $x=0$, the slope of the cable, $y\prime(0)$, is given by the forces applied to the system.
+
+The first condition gives us
+\begin{equation}
+	\centering
+	K_2 =-a \cosh{K_1}
+	\label{eq:K2}
+\end{equation}
+and the second condition gives
+\begin{equation}
+	\centering
+	\left. \frac{dy}{dx}\right|_{x=0} = \sinh{K_1} = \frac{L-W-W_c}{D + \delta y_g}
+	\label{eq:bc1}
+\end{equation}
+that upon rearrangment
+\begin{equation}
+	\centering
+	K_1 = \arcsinh \left(\frac{L-W-W_c}{D + \delta y_g}\right)
+	\label{eq:K1}
+\end{equation}
+where $L$ is lift supplied by the aircraft, $W$ aircraft weight and $W_c$ cable weight.
+
+For a given horizontal location of the glider, $x_g$, we can compute the height, $y(x_g)=y_g$, at that location. To know the maximum height reached by the glider we need to determine the x-location for which the glider is at the top of the launch. For that, we use the following condition to obtain an expression for $x_g$ at maximum height: at $x=x_g$, the derivative of $y(x)$, i.e. the slope of the cable, is equivalent to the ratio of the applied forces on the glider in the equilibrium state, i.e.,  
+\begin{equation}
+	\centering
+	\left. \frac{dy}{dx}\right|_{x=x_g}=\sinh\left(\frac{x_g}{a} + K_1 \right) = \frac{L-W}{D}
+	\label{eq:bc2}
+\end{equation}
+which gives the following expression for $x_g$ : 
+\begin{equation}
+	\centering
+	 x_g=a \cdot \left( \arcsinh \left(\frac{L-W}{D}\right) - K_1 \right).
+	\label{eq:x_g}
+\end{equation}
+The calculation of $y(x_g)$ allows us to obtain the maximum height reached by the glider for a specified launch configuration.
+
+
+\subsection{Example}
+
+Let's consider the ASK 21 glider in a towed kite-type launch. In that case we focus on the impact of the cable length on the maximum height achieved by the glider. The linear density of the cable is $\rho_c$. The drag applied to the cable is given by : 
+\begin{equation}
+	\centering
+	\delta=\frac{1}{2}\cdot \rho \cdot l \cdot w \cdot V^2 \cdot C_x
+	\label{eq:delta}
+\end{equation}
+
+The glider is towed at a linear speed of 40m/s. We assume the pilot adapts the angle of attack to get the best lift coefficient of the polar. Therefore $C_{lmax}$ maximizes the vertical lift force; it is the optimum angle to get the maximum height. The lift and drag coefficients for that configuration can be obtained from the published glider polar. The glider weight is 550kg and we use the properties of a classic Dyneema winching rope for the cable. Calculations are made for different length of cable going from 100m to 5000m with an increment of 100m between each simulation.
+The results obtained are shown figure 1. 
+
+%\begin{figure}[!htp]
+%        \includegraphics[scale=0.9]{ASK-21-simu5000.png}
+%    \end{figure}
+An obvious note is that the longer the cable is, the more it tends to curve under the effect of the cable weight and drag. Of course the curve is dependent on the parameters mentioned previously : tow speed, glider characteristics, cable characteristics. Further study could be carried out to note the impact of those features on the cable shape - and so the heights achievable by the glider. 
+
+To compare the advantage of a longer (or shorter) cable we have computed the percentage of cable length converted into height by the glider. Figure 2 shows for each cable length that percentage: 
+
+%\begin{figure}[!htp]
+%        \includegraphics[scale=0.9]{ASK-21-simu5000.png}
+%    \end{figure}
+
+The decrease of the percentage is nonlinear. The use of such a curve can allow to design the type of launch for a given configuration of glider and payload. It might help finding an optimum for the length of cable to use. That could, for example, be a compromise between the gain of height to the increase of cost per unit of cable or considering time taken to launch and ground available for the towing vehicle. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
