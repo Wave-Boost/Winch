@@ -151,21 +151,21 @@ that upon rearrangment
 	K_1 = \arcsinh \left(\frac{L-W-W_c}{D + \delta y_g}\right)
 	\label{eq:K1}
 \end{equation}
-where $L$ is lift supplied by the aircraft, $W$ aircraft weight and $W_c$ cable weight.
+where $L$ is lift supplied by the aircraft, $W$ aircraft weight, $W_c$ cable weight. $y_g$ is the height of the glider for a given horizontal location $x_g$, i.e., $y(x_g)=y_g$. 
 
-For a given horizontal location of the glider, $x_g$, we can compute the height, $y(x_g)=y_g$, at that location. To know the maximum height reached by the glider we need to determine the x-location for which the glider is at the top of the launch. For that, we use the following condition to obtain an expression for $x_g$ at maximum height: at $x=x_g$, the derivative of $y(x)$, i.e. the slope of the cable, is equivalent to the ratio of the applied forces on the glider in the equilibrium state, i.e.,  
+To know the maximum height achievable by the glider we need to determine the x-location for which the glider is at the top of the launch. For that, we use the following condition to obtain an expression for $x_g$ at maximum height: at $x=x_g$, the derivative of $y(x)$, i.e. the slope of the cable, is equivalent to the ratio of the applied forces due to the glider in the equilibrium state. So from (\ref{eq:z(x)}) or (\ref{eq:solution})
 \begin{equation}
 	\centering
 	\left. \frac{dy}{dx}\right|_{x=x_g}=\sinh\left(\frac{x_g}{a} + K_1 \right) = \frac{L-W}{D}
 	\label{eq:bc2}
 \end{equation}
-which gives the following expression for $x_g$ : 
+and rearranging the expression for $x_g$ 
 \begin{equation}
 	\centering
 	 x_g=a \cdot \left( \arcsinh \left(\frac{L-W}{D}\right) - K_1 \right).
 	\label{eq:x_g}
 \end{equation}
-The calculation of $y(x_g)$ allows us to obtain the maximum height reached by the glider for a specified launch configuration.
+The calculation of $y(x_g)$ then allows us to obtain the maximum height reached by the glider for a specified launch configuration.
 
 
 \subsection{Example}
@@ -173,7 +173,7 @@ The calculation of $y(x_g)$ allows us to obtain the maximum height reached by th
 Let's consider the ASK 21 glider in a towed kite-type launch. In that case we focus on the impact of the cable length on the maximum height achieved by the glider. The linear density of the cable is $\rho_c$. The drag applied to the cable is given by : 
 \begin{equation}
 	\centering
-	\delta=\frac{1}{2}\cdot \rho \cdot l \cdot w \cdot V^2 \cdot C_x
+	\delta=\frac{1}{2}\cdot \rho \cdot y_g \cdot w \cdot V^2 \cdot C_x
 	\label{eq:delta}
 \end{equation}
 
@@ -183,7 +183,7 @@ The results obtained are shown figure 1.
 %\begin{figure}[!htp]
 %        \includegraphics[scale=0.9]{ASK-21-simu5000.png}
 %    \end{figure}
-An obvious note is that the longer the cable is, the more it tends to curve under the effect of the cable weight and drag. Of course the curve is dependent on the parameters mentioned previously : tow speed, glider characteristics, cable characteristics. Further study could be carried out to note the impact of those features on the cable shape - and so the heights achievable by the glider. 
+An obvious note is that the longer the cable is, the more it tends to curve under the effect of the cable weight. Of course the curve is dependent on the parameters mentioned previously : tow speed, glider characteristics, cable characteristics. Further study could be carried out to note the impact of those features on the cable shape - and so the heights achievable by the glider. 
 
 To compare the advantage of a longer (or shorter) cable we have computed the percentage of cable length converted into height by the glider. Figure 2 shows for each cable length that percentage: 
 
