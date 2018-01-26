@@ -29,7 +29,7 @@
 \tolerance 400
 \pretolerance 200
 
-\title{Investigation into glider launch heights using a land vehicle tow.}
+\title{Investigation into glider launch heights using surface tow.}
 \author{
     Hugo P. Corbille and Gregory J. Balle\\
 %%    {\MakeLowercase{hugo.corbille@gmail.com}} \\
@@ -68,7 +68,7 @@ giving the relation between components of the tension :
 	\label{eq:tension}
 \end{equation}
 
-In our model, we assume the cable drag to be a constant force applied to the glider in addition to the aircraft drag and therefore we can suppose that the horizontal component of the cable tension is constant. Furthermore, considering a non-constant drag along the cable makes the calculation considerably more involved beyond the scope of this study; refining the validity of this approximation could be done in a further study. The horizontal component of the tension is then $T_h = D + \delta y$, where $D$ is the aircraft drag and $\delta$ is the cable drag per unit height. 
+In our model, we assume the aerodynamic cable drag to be a constant force applied to the glider in addition to the aircraft drag and therefore we can suppose that the horizontal component of the cable tension is constant in a quasi-static limit. Considering a non-constant drag along the cable makes the calculation considerably more involved and beyond the scope of this study. The horizontal component of the tension is then $T_h = D + \delta y$, where $D$ is the aircraft drag and $\delta$ is the cable drag per unit height. 
 
 The vertical tension component due to the weight of the cable is a function of length $s$
 \begin{equation}
@@ -80,10 +80,9 @@ where $\mu$ is the mass per unit length of cable and $g$ the Earth surface gravi
 Substituting (\ref{eq:vtension}) into (\ref{eq:tension}) and recognising $T_h$ as constant yields the fundamental equation for the catenary slope
 \begin{equation}
 	\centering
-	\frac{dy}{dx} = \frac{s}{a} 
+	\frac{dy}{dx} = \frac{s}{a} \qquad \text{letting} \; a=\frac{T_h}{\mu g}.
 	\label{eq:fundamental}
 \end{equation}
-where $a=\frac{T_h}{\mu g}$.
 Now the derivative of (\ref{eq:fundamental}) 
 \begin{equation}
 	\centering
@@ -151,7 +150,7 @@ that upon rearrangment
 	K_1 = \arcsinh \left(\frac{L-W-W_c}{D + \delta y_g}\right)
 	\label{eq:K1}
 \end{equation}
-where $L$ is lift supplied by the aircraft, $W$ aircraft weight, $W_c$ cable weight. $y_g$ is the height of the glider for a given horizontal location $x_g$, i.e., $y(x_g)=y_g$. 
+where $L$ is lift supplied by the aircraft, $W$ aircraft weight and $W_c$ cable weight. $y_g$ is the height of the glider for a given horizontal location $x_g$, i.e., $y(x_g)=y_g$. 
 
 To know the maximum height achievable by the glider we need to determine the x-location for which the glider is at the top of the launch. For that, we use the following condition to obtain an expression for $x_g$ at maximum height: at $x=x_g$, the derivative of $y(x)$, i.e. the slope of the cable, is equivalent to the ratio of the applied forces due to the glider in the equilibrium state. So from (\ref{eq:z(x)}) or (\ref{eq:solution})
 \begin{equation}
