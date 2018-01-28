@@ -70,26 +70,14 @@ giving the relation between components of the tension :
 
 In our model, we assume the aerodynamic cable drag to be a constant force applied to the glider in addition to the aircraft drag and therefore we can suppose that the horizontal component of the cable tension is constant in a quasi-static limit. Considering a non-constant drag along the cable makes the calculation considerably more involved and beyond the scope of this study. The horizontal component of the tension is then $T_h = D + \delta y$, where $D$ is the aircraft drag and $\delta$ is the cable drag per unit height. 
 
-The vertical tension component due to the weight of the cable is a function of length $s$
+Considering the balance of vertical forces on an elemental length of cable $ds$ we get
 \begin{equation}
 	\centering
-	T_{v}=\mu g \cdot s
-	\label{eq:vtension}
+	T_{v}(x+dx) - T_{v}(x) = \mu g \cdot ds
+	\label{eq:vforces}
 \end{equation}
-where $\mu$ is the mass per unit length of cable and $g$ the Earth surface gravitational constant.
-Substituting (\ref{eq:vtension}) into (\ref{eq:tension}) and recognising $T_h$ as constant yields the fundamental equation for the catenary slope
-\begin{equation}
-	\centering
-	\frac{dy}{dx} = \frac{s}{a} \qquad \text{letting} \; a=\frac{T_h}{\mu g}.
-	\label{eq:fundamental}
-\end{equation}
-Now the derivative of (\ref{eq:fundamental}) 
-\begin{equation}
-	\centering
-	\frac{d^{2}y}{{dx}^2}=\frac{1}{a}\frac{ds}{dx}
-	\label{eq:yprimeprime}
-\end{equation}
-can be rearranged using geometrical considerations and the approximation of small deflections for the cable whereby
+where $\mu$ is the mass per unit length of cable and $g$ the Earth surface gravitational constant. Now
+using geometrical considerations and the approximation of small deflections for the cable whereby
 \begin{equation}
 	\centering
 	ds^2=dx^2+dy^2
@@ -98,10 +86,34 @@ can be rearranged using geometrical considerations and the approximation of smal
 leads to an expression for $ds$ as a function of $\frac{dy}{dx}$
 \begin{equation}
 	\centering
-	\frac{ds}{dx} = \sqrt{1 + \frac{dy}{dx}}.
+	ds = dx \cdot \sqrt{1 + \left(\frac{dy}{dx}\right)^2}.
 	\label{eq:ds}
 \end{equation}
-and substituting in to (\ref{eq:yprimeprime}) yields the differential equation 
+Putting (\ref{eq:ds}) into (\ref{eq:vforces}) and taking the limit $dx \to 0$ gives us the first derivative of vertical tension with respect to x
+\begin{equation}
+	\centering
+	\frac{dT_{v}}{dx} = \mu g \sqrt{1 + \left(\frac{dy}{dx}\right)^2}
+	\label{eq:Tvprime}
+\end{equation}
+that can be compared with the derivative obtained from (\ref{eq:tension})
+\begin{equation}
+	\centering
+	\frac{dT_{v}}{dx} = T_{h} \frac{d^{2}y}{{dx}^2},
+	\label{eq:Tvprimeprime}
+\end{equation}
+recognising $T_h$ as constant. Then from the fundamental equation for the catenary slope
+\begin{equation}
+	\centering
+	\frac{dy}{dx} = \frac{s}{a}, \qquad \text{where} \; T_{v}=\mu g s \quad \text{and} \; a=\frac{T_h}{\mu g},
+	\label{eq:fundamental}
+\end{equation}
+it is evident that the internal tension is always aligned with the cable and the derivative of (\ref{eq:fundamental}) is 
+\begin{equation}
+	\centering
+	\frac{d^{2}y}{{dx}^2}=\frac{1}{a}\frac{ds}{dx}.
+	\label{eq:yprimeprime}
+\end{equation}
+Finally, substituting (\ref{eq:ds}) in to (\ref{eq:yprimeprime}) yields the differential equation 
 \begin{equation}
 	\centering
 	y \prime \prime =\frac{1}{a} \sqrt{1 + y\prime ^2}.
