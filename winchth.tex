@@ -98,41 +98,42 @@ Putting (\ref{eq:ds}) into (\ref{eq:vforces}) and taking the limit $dx \to 0$ gi
 that can be compared with the derivative obtained from (\ref{eq:tension})
 \begin{equation}
 	\centering
-	\frac{dT_{v}}{dx} = T_{h} \frac{d^{2}y}{{dx}^2},
+	\frac{dT_{v}}{dx} = T_{h} \frac{d^{2}y}{{dx}^2} = T_h y \prime \prime,
+	\label{eq:Tvprime2}
+\end{equation}
+recognising $T_h$ as constant. Taking the second derivative of (\ref{eq:Tvprime})
+\begin{equation}
+	\centering
+	\frac{d^{2}T_{v}}{{dx}^2} = \mu g \frac{y \prime y \prime \prime}{\sqrt{1 + (y \prime)^2}}
 	\label{eq:Tvprimeprime}
 \end{equation}
-recognising $T_h$ as constant. Then from the fundamental equation for the catenary slope
+and substituting back in (\ref{eq:tension}), (\ref{eq:Tvprime2}) and then (\ref{eq:Tvprime}) we get
+\begin{align*}
+\frac{d^{2}T_{v}}{{dx}^2} &= \mu g \frac{\frac{T_v}{T_h} \frac{1}{T_h}\frac{dT_{v}}{dx}}{\sqrt{1 + (y \prime)^2}} \\
+	&= \frac{\mu g}{{T_h}^2} \frac{T_v \mu g \sqrt{1 + (y \prime)^2}}{\sqrt{1 + (y \prime)^2}} \\
+	&= \left(\frac{\mu g}{T_h}\right)^2 T_v
+	\label{eq:Tvprimeprime2}
+\end{align*}
+or
 \begin{equation}
 	\centering
-	\frac{dy}{dx} = \frac{s}{a}, \qquad \text{where} \; T_{v}=\mu g s \quad \text{and} \; a=\frac{T_h}{\mu g},
+	\boxed{\frac{d^{2}T_{v}}{{dx}^2} - \frac{T_v}{a^2} = 0} \qquad \text{where} \; a=\frac{T_h}{\mu g}.
+	\label{eq:main}
+\end{equation}
+(\ref{eq:main}) is a linear 2nd order differential having a solution $\sinh{\frac{x}{a}}$ and 
+then 
+\begin{equation}
+	\centering
+	s = a \sinh{\frac{x}{a}}, \qquad \text{where} \; T_{v}=\mu g s
+	\label{eq:s}
+\end{equation}
+gives us the fundamental equation for the catenary slope
+\begin{equation}
+	\centering
+	\frac{dy}{dx} = \frac{s}{a}
 	\label{eq:fundamental}
 \end{equation}
-it is evident that the internal tension is always aligned with the cable and the derivative of (\ref{eq:fundamental}) is 
-\begin{equation}
-	\centering
-	\frac{d^{2}y}{{dx}^2}=\frac{1}{a}\frac{ds}{dx}.
-	\label{eq:yprimeprime}
-\end{equation}
-Finally, substituting (\ref{eq:ds}) in to (\ref{eq:yprimeprime}) yields the differential equation 
-\begin{equation}
-	\centering
-	y \prime \prime =\frac{1}{a} \sqrt{1 + y\prime ^2}.
-	\label{eq:differential}
-\end{equation}
-
-To solve equation (\ref{eq:differential}) we can set $z(x)=y\prime(x)$ so that
-\begin{equation}
-	\centering
-	\frac{z \prime}{\sqrt{1+z^2}} =\frac{1}{a}.
-	\label{eq:z}
-\end{equation}
-and a primitive satisfying (\ref{eq:z}) has the form $\arcsinh{z(x)}$, such that
-\begin{equation}
-	\centering
-	z(x)=\sinh \left(\frac{x}{a} + K_1 \right)
-	\label{eq:z(x)}
-\end{equation}
-with the general solution of the problem
+and the general solution to the problem for the catenary curve
 \begin{equation}
 	\centering
 	\boxed{y(x)=a \cdot \cosh \left(\frac{x}{a} + K_1 \right) + K_2}
@@ -164,7 +165,7 @@ that upon rearrangment
 \end{equation}
 where $L$ is lift supplied by the aircraft, $W$ aircraft weight and $W_c$ cable weight. $y_g$ is the height of the glider for a given horizontal location $x_g$, i.e., $y(x_g)=y_g$. 
 
-To know the maximum height achievable by the glider we need to determine the x-location for which the glider is at the top of the launch. For that, we use the following condition to obtain an expression for $x_g$ at maximum height: at $x=x_g$, the derivative of $y(x)$, i.e. the slope of the cable, is equivalent to the ratio of the applied forces due to the glider in the equilibrium state. So from (\ref{eq:z(x)}) or (\ref{eq:solution})
+To know the maximum height achievable by the glider we need to determine the x-location for which the glider is at the top of the launch. For that, we use the following condition to obtain an expression for $x_g$ at maximum height: at $x=x_g$, the derivative of $y(x)$, i.e. the slope of the cable, is equivalent to the ratio of the applied forces due to the glider in the equilibrium state. So from (\ref{eq:solution})
 \begin{equation}
 	\centering
 	\left. \frac{dy}{dx}\right|_{x=x_g}=\sinh\left(\frac{x_g}{a} + K_1 \right) = \frac{L-W}{D}
